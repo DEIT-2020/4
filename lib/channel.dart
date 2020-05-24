@@ -45,10 +45,24 @@ class HeroesChannel extends ApplicationChannel {
       .linkFunction((request) async {
         return Response.ok({"key": "value"});
       });
+    router
+      .route("/login")
+      .link();
+    router  
+      .route("/search")
+      .link();
+    router
+      .route("/course")
+      .link();
+    router
+      .route("/comment")
+      .link();
+      //member1在这里添加了路由
      router
       .route('/heroes')
       .link(() => HeroesController(context));
     return router;
+  
   }
 }
 
