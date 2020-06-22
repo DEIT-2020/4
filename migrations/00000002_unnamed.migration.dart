@@ -1,10 +1,16 @@
 import 'dart:async';
 import 'package:aqueduct/aqueduct.dart';   
 
-class Migration1 extends Migration { 
+class Migration2 extends Migration { 
   @override
   Future upgrade() async {
-   		database.createTable(SchemaTable("_Hero", [SchemaColumn("id", ManagedPropertyType.bigInteger, isPrimaryKey: true, autoincrement: true, isIndexed: false, isNullable: false, isUnique: false),SchemaColumn("name", ManagedPropertyType.string, isPrimaryKey: false, autoincrement: false, isIndexed: false, isNullable: false, isUnique: true)]));
+      database.createTable(SchemaTable("_USER",[SchemaColumn("user_id",ManagedPropertyType.bigInteger, isPrimaryKey: true, autoincrement: true, isIndexed: false, isNullable: false, isUnique: false),SchemaColumn("user_nickname",ManagedPropertyType.string, isPrimaryKey: false, autoincrement: false, isIndexed: false, isNullable: false, isUnique: true),SchemaColumn("user_password", ManagedPropertyType.string, isPrimaryKey: false, autoincrement: false, isIndexed: false, isNullable: false, isUnique: true)]));
+      database.createTable(SchemaTable("_Teacher",[SchemaColumn("teacher_id",ManagedPropertyType.bigInteger, isPrimaryKey: true, autoincrement: true, isIndexed: false, isNullable: false, isUnique: false),SchemaColumn("teacher_name", ManagedPropertyType.string, isPrimaryKey: false, autoincrement: false, isIndexed: false, isNullable: false, isUnique: true)]));
+      database.createTable(SchemaTable("_Course",[SchemaColumn("course_id",ManagedPropertyType.bigInteger, isPrimaryKey: true, autoincrement: true, isIndexed: false, isNullable: false, isUnique: false),SchemaColumn("course_name", ManagedPropertyType.string, isPrimaryKey: false, autoincrement: false, isIndexed: false, isNullable: false, isUnique: true),SchemaColumn("teacher_name", ManagedPropertyType.string, isPrimaryKey: false, autoincrement: false, isIndexed: false, isNullable: false, isUnique: true)]));
+     
+      database.createTable(SchemaTable("_Comment",[SchemaColumn("comment_id",ManagedPropertyType.bigInteger, isPrimaryKey: true, autoincrement: true, isIndexed: false, isNullable: false, isUnique: false),SchemaColumn("content", ManagedPropertyType.string, isPrimaryKey: false, autoincrement: false, isIndexed: false, isNullable: false, isUnique: true)]));
+      database.addColumn("_Comment", SchemaColumn.relationship("course", ManagedPropertyType.bigInteger, relatedTableName: "_Course", relatedColumnName: "course_id", rule: DeleteRule.nullify, isNullable: true, isUnique: false));
+      database.addColumn("_USER", SchemaColumn.relationship("user", ManagedPropertyType.bigInteger, relatedTableName: "_USER", relatedColumnName: "user_id", rule: DeleteRule.nullify, isNullable: true, isUnique: false));
   }
   
   @override
@@ -12,14 +18,13 @@ class Migration1 extends Migration {
   
   @override
   Future seed() async {
-     final heroNames = ["Mr. Nice", "Narco", "Bombasto", "Celeritas", "Magneta"];
+    final coursenames = ["学习技术系统开发"];
 
-  for (final heroName in heroNames) {    
-    await database.store.execute("INSERT INTO _Hero (name) VALUES (@name)", substitutionValues: {
-      "name": heroName
+  for (final coursename in coursenames) {    
+    await database.store.execute("INSERT INTO _Course (course_name) VALUES (@name)", substitutionValues: {
+      "name": coursename
     });
   }
-  // aqueduct db upgrade --connect postgres://iflyup:729@3663@13.115.53.84:5432/heroes
   }
 }
     

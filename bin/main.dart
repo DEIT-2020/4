@@ -1,6 +1,7 @@
 import 'package:heroes/heroes.dart';
 
 Future main() async {
+  //有团队成员 xx 在testbranch中修改
   final app = Application<HeroesChannel>()
       ..options.configurationFilePath = "config.src.yaml"
       ..options.port = 8888;

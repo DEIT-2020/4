@@ -1,5 +1,7 @@
 import 'heroes.dart';
 import 'controller/heroes_controller.dart';
+import 'controller/loginController.dart';
+import 'controller/searchControoler.dart';
 /// This type initializes an application.
 ///
 /// Override methods in this class to set up routes and initialize services like
@@ -37,7 +39,7 @@ class HeroesChannel extends ApplicationChannel {
   @override
   Controller get entryPoint {
     final router = Router();
-
+     
     // Prefer to use `link` instead of `linkFunction`.
     // See: https://aqueduct.io/docs/http/request_controller/
     router
@@ -45,24 +47,20 @@ class HeroesChannel extends ApplicationChannel {
       .linkFunction((request) async {
         return Response.ok({"key": "value"});
       });
+     
+     // member1 在这里添加了新的路由。 
+    // add by leader.
     router
-      .route("/login")
-      .link();
-    router  
-      .route("/search")
-      .link();
-    router
-      .route("/course")
-      .link();
-    router
-      .route("/comment")
-      .link();
-      //member1在这里添加了路由
-     router
-      .route('/heroes')
+      .route('/heroes/[id:]')
       .link(() => HeroesController(context));
+    router
+      .route('/login')
+      .link(()=> loginController(context));
+    router
+      .route('/search')
+      .link(()=>SearchController(context));
+
     return router;
-  
   }
 }
 

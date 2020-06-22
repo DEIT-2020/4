@@ -19,7 +19,6 @@ class Migration1 extends Migration {
       "name": heroName
     });
   }
-  // aqueduct db upgrade --connect postgres://iflyup:729@3663@13.115.53.84:5432/heroes
   }
 }
     

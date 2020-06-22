@@ -1,19 +1,17 @@
-import 'dart:html';
+
 
 import 'package:heroes/heroes.dart';
+
 class Teacher extends ManagedObject<_Teacher> implements _Teacher {}
 
 class _Teacher {
   @primaryKey
-  String id;
+  String teacher_id;
 
   @Column(unique: true)
-  String tcname;
+  String teacher_name;
   
-  @Column(unique: true)
-  String photo;
-  
-  @Column(unique: true)
-  String tccomment;
+ 
+
   
 }

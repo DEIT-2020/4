@@ -1,19 +1,22 @@
-import 'dart:html';
 
+import 'package:heroes/model/comment.dart';
+import 'package:heroes/model/teacher.dart';
 import 'package:heroes/heroes.dart';
-class Coutse extends ManagedObject<_Course> implements _Course {}
+class Course extends ManagedObject<_Course> implements _Course {}
 
 class _Course {
   @primaryKey
-  String id;
+  String course_id;
   
   @Column(unique: true)
-  String cname;
+  String course_name;
   
-  @Column(unique: true)
-  String teacherid;
+  @Column(unique:false)
+  String teacher_name;
 
-  @Column(unique: true)
+  @Column(unique:false)
   String score;
+  ManagedSet<Comment>comment;
+  
   
 }
