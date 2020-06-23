@@ -2,6 +2,8 @@ import 'heroes.dart';
 import 'controller/heroes_controller.dart';
 import 'controller/loginController.dart';
 import 'controller/searchControoler.dart';
+import 'controller/coursecontroller.dart';
+import 'controller/commentcontroller.dart';
 /// This type initializes an application.
 ///
 /// Override methods in this class to set up routes and initialize services like
@@ -59,7 +61,12 @@ class HeroesChannel extends ApplicationChannel {
     router
       .route('/search')
       .link(()=>SearchController(context));
-
+    router
+      .route('/course/[:id]')
+      .link(()=>CourseController(context));
+    router
+      .route('/comment')
+      .link(()=>CommentController(context));
     return router;
   }
 }
