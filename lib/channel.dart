@@ -67,6 +67,7 @@ class HeroesChannel extends ApplicationChannel {
     router
       .route('/comment')
       .link(()=>CommentController(context));
+    
     return router;
   }
 }

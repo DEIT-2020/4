@@ -16,6 +16,25 @@ class Migration2 extends Migration {
   Future downgrade() async {}
   
   @override
-  Future seed() async {}
+  Future seed() async {
+    final userNames = ["Jacky"];
+    final userIDs=[1];
+    final userPWs=['zzj673191'];
+  for (final userName in userNames) {    
+    await database.store.execute("INSERT INTO _user (user_nickname) VALUES (@name)", substitutionValues: {
+      "name": userName
+    });
+  }
+  for(final userID in userIDs ){
+    await database.store.execute('INSERT INTO _user (user_id) VALUES (@ID)',substitutionValues:{
+      "ID":userID
+    });
+  }
+  for(final userPW in userPWs ){
+    await database.store.execute('INSERT INTO _user (user_password) VALUES (@PW)',substitutionValues:{
+      "PW":userPW
+    });
+  }
+  }
 }
     

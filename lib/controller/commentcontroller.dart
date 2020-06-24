@@ -6,8 +6,5 @@ class CommentController extends ResourceController {
 
   final ManagedContext context;
 
-  @Operation.get('user_id')
-  Future<Response> getUserbyID() async {
-    return Response.ok("登录成功！");
-  }
+  
 }
