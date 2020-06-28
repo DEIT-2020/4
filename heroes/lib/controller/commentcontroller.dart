@@ -10,11 +10,12 @@ class CommentController extends ResourceController {
 
    @Operation.post() 
   FutureOr<Response> insertArticle(
-      @Bind.body(ignore: ["createData"]) Comment comment) async {
+      @Bind.body(ignore: ["comment_id"]) Comment comment) async {
+       final query = Query<Comment>(context)..values =comment;
+
     
     
-    
-    final insertedComment = await context.insertObject<Comment>(comment);
+    final insertedComment = await query.insert();
     return Response.ok(insertedComment);
   }
 

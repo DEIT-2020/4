@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    </head>
+	<body>
+     <h1>Tour of Heroes</h1>
+     <h3>Heroes:</h3>
+<ul>
+  <li *ngFor="let hero of heroes">{{hero.name}}</li>
+</ul>
+
+<label>New hero name: <input #newHeroName /></label>
+<button (click)="add(newHeroName.value); newHeroName.value=''">Add Hero</button>
+
+
+</body>
+	
+</html>

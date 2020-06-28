@@ -56,7 +56,7 @@ class HeroesChannel extends ApplicationChannel {
       .route('/heroes/[id:]')
       .link(() => HeroesController(context));
     router
-      .route('/login')
+      .route('/login/[user_id]')
       .link(()=> LoginController(context));
     router
       .route('/search')

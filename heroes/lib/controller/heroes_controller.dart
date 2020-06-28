@@ -10,10 +10,10 @@ class HeroesController extends ResourceController {
   @Operation.get()
   Future<Response> getAllHeroes() async {
     // Query<Hero>(context);
-    // final heroes = await heroQuery.fetch();
+     //final heroes = await heroQuery.fetch();
 
-    // return Response.ok(heroes);
-    return Response.ok("[]");
+     //return Response.ok(heroes);
+    return Response.ok("good");
   }
 
   @Operation.post()
