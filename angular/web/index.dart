@@ -13,12 +13,12 @@ void main() {
 
 }
 void login(Event e) async{
-  var id =document.querySelector('#managerID');
+  var id =document.querySelector('#username');
 //window.alert((ID as InputElement).value);
-var password=document.querySelector('#managerPassword');
+var password=document.querySelector('#userpassword');
 var data = {
-      'managerId': (id as InputElement).value,
-      'managerPassword': (password as InputElement).value,
+      'username': (id as InputElement).value,
+      'userpassword': (password as InputElement).value,
     };
 
  final response = await http.post('http://127.0.0.1:8888/login',
@@ -32,9 +32,9 @@ var data = {
     if (userAthu =='ok')//写传回来的参数
     { var div=document.querySelector("#unlog");
       var id=document.querySelector("#ID");
-      div.children.clear();//移除最上面的登陆栏
+      
       div.appendText(id.innerHtml);
-      window.open('managerHome.html', '');
+      window.open('index.html', '');
     }
     else{
       window.alert("用户名或密码错误！");

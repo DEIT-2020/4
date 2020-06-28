@@ -9,10 +9,11 @@
 			}
 
 			#content {
-				margin: 150px auto;
+				margin: 50px auto;
 				width: 100%;
-				height: 460px;
+				height: 100px;
 				border: 1px transparent solid;
+				padding-left: 7%;
 				background-color: #21D4FD;
 				background-image: linear-gradient(243deg, #21D4FD 0%, #B721FF 100%);
 				background-image: -webkit-linear-gradient(243deg, #21D4FD 0%, #B721FF 100%);
@@ -21,20 +22,31 @@
 			}
 
 			#box {
-				margin: 50px auto;
-				width: 30%;
-				height: 360px;
+				margin: 10px auto;
+				width: 50%;
+				height: 200px;
 				background-color: #fff;
-				text-align: center;
+				text-align: left;
 				border-radius: 15px;
 				border: 2px #fff solid;
-				box-shadow: 10px 10px 5px #000000;
+				box-shadow: 5px 5px 2px #000000;
+				padding-left: 5%;
+				float: left;
+				margin-left: 70px;
 			}
 
-			.title {
+			.cname {
 				line-height: 58px;
-				margin-top: 20px;
-				font-size: 36px;
+				margin-top: 10px;
+				font-size: 24px;
+				color: #000;
+				height: 58px;
+			}
+
+			.tname {
+				line-height: 58px;
+				margin-top: 10px;
+				font-size: 18px;
 				color: #000;
 				height: 58px;
 			}
@@ -44,16 +56,16 @@
 			}
 
 			.input {
-				margin-top: 20px;
+				margin-top: 10px;
 			}
 
 			input {
-				margin-top: 5px;
+				margin-right: 40px;
 				outline-style: none;
 				border: 1px solid #ccc;
 				border-radius: 3px;
 				padding: 13px 14px;
-				width: 70%;
+				width: 40%;
 				font-size: 14px;
 				font-weight: 700;
 				font-family: "Microsoft soft";
@@ -69,45 +81,43 @@
 				display: inline-block;
 				font-size: 16px;
 				border-radius: 15px;
-				background-color: #CCCCCC;
+				background-color: #7bcbe4;
 			}
 			button:hover{
-				background-color: #B721FF;
+				background-color: #2ea0ec;
 				color: #fff;
 			}
 		</style>
 	</head>
 	<body>
 		<div id="content">
-			<div id="box">
-				<div class="title">查询</div>
-				<br><br>
-				<div class="input">
-					<input type="coursename" id="coursename" placeholder="课程名/教师名" />
-                    <br><br><br>
-                    <a href="学习.html">
-					<button type="button" onclick="getuser()">确认</button>
-				</a>
-				    <a href="index.html">
+			<div class="input">
+				<input type="coursename" id="coursename" placeholder="课程名/教师名" />
+				
+				<button type="button" onclick="getuser()">确认</button>
+				<a href="search.html">
 					<button type="button" onclick="getuser()">返回</button>
 				</a>
-				</div>
 			</div>
 		</div>
+		<div id="box">
+			<table><tr>
+			<td><img src="pic/one.jpg"width="100" height="150" /></td>
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td><div class="cname">C语言</div><br>
+			<div class="tname">胡艺龄</div></td>
+			</tr></table>
+		</div>
+		<br><br>
+		<div id="box">
+			<table><tr>
+				<td><img src="pic/two.jpg"width="100" height="150"/></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td><div class="cname">R语言</div><br>
+					<div class="tname">吴忭</div></td>
+			</tr></table>
+		</div>
+			
 	</body>
-	<script type="text/javascript">
-		function getuser() {
-			var coursename = document.getElementById("coursename").value;
-			var teachernam = document.getElementById("teachername").value;
-			testing(coursename, teachernam)
-		}
-
-		function testing(coursename, teachernam) {
-			var tmp = coursename || teachernam;
-			if (tmp == "") {
-				alert("请输入查询信息");
-				return 0;
-			}
-		}
-	</script>
+	
 </html>

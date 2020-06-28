@@ -1,5 +1,8 @@
+
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
+
 	<head>
 		<meta charset="utf-8">
 		<title></title>
@@ -88,12 +91,22 @@
 					<br>
 					<input type="password" id="password1" placeholder="再次输入" />
 					<br>
-					<button class="btn btn-primary" id='managerLoginSubmit'
-													type="submit">Submit</button>
+					<a href="search.html">
+					<button type="button" onclick="getuser()">登录</button>
+					</a>
 				</div>
 			</div>
 		</div>
 
 	</body>
-	
-</html>
+	<script type="text/javascript">
+		function getuser() {
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+			var password1 = document.getElementById("password1").value;
+			testing(username, password,password1)
+			//alert("username:"+username+"\n"+"password:"+password);
+		}
+
+
+ 
