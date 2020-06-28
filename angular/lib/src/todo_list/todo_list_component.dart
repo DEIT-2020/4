@@ -39,3 +39,4 @@ class TodoListComponent implements OnInit {
 
   String remove(int index) => items.removeAt(index);
 }
+

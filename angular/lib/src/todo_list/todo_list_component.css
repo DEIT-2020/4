@@ -12,7 +12,6 @@ ul {
         background-image: -o-linear-gradient(243deg, #21D4FD 0%, #B721FF 100%);
 }
 #box{
-  padding-top: 20px;
   background-color: lightgrey;
   border-radius: 15px;
 }
@@ -25,15 +24,14 @@ ul {
   font-size: medium;
 }
 
-#comments{
-  height: 10px;  
-  padding-left: 50px;
-}
 #comment{
-   padding-top: 20px;
-  height: 20px;
-    
-    padding-left: 50px;}
+padding-top:20px;
+	border-radius:15px;
+  background-color: lightgray;
+	height:35px;
+	padding-left:50px;
+}
+
 
 #blank{
   height: 20px;
@@ -59,4 +57,3 @@ li material-fab {
 .done {
   
 }
-
