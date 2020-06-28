@@ -7,14 +7,16 @@ class CourseController extends ResourceController {
 
   final ManagedContext context;
 
-  @Operation.post() 
-  FutureOr<Response> insertComment(
-      @Bind.body(ignore: ["createData"]) Comment comment) async {
+  @Operation.get('course_id') 
+  FutureOr<Response>  getHeroByID(@Bind.path('id') String id)async {
 
     
-//插入一条数据
-    final insertedComment = await context.insertObject<Comment>(comment);
-    return Response.ok(insertedComment);
+ final heroQuery = Query<Comment>(context)..where((h) => h.comment_id).equalTo(id);
+
+    final hero = await heroQuery.fetchOne();
+
+   
+    return Response.ok(hero);
 
       }
 }
