@@ -13,10 +13,6 @@ class _Comment {
   @Column(unique: true)
   String content;
 
-  @Relate(#comment)
-  USER user;
 
-  @Relate(#comment)
-  Course course;
 
 }

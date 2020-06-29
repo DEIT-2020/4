@@ -12,6 +12,6 @@ class _USER {
   @Column(unique: false)
   String user_password;
 
-  ManagedSet<Comment>comment;
+ 
   
 }

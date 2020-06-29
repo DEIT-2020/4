@@ -8,8 +8,6 @@ class Migration2 extends Migration {
 		database.createTable(SchemaTable("_Course", [SchemaColumn("course_id", ManagedPropertyType.bigInteger, isPrimaryKey: true, autoincrement: true, isIndexed: false, isNullable: false, isUnique: false),SchemaColumn("course_name", ManagedPropertyType.string, isPrimaryKey: false, autoincrement: false, isIndexed: false, isNullable: false, isUnique: true),SchemaColumn("teacher_name", ManagedPropertyType.string, isPrimaryKey: false, autoincrement: false, isIndexed: false, isNullable: false, isUnique: false),SchemaColumn("score", ManagedPropertyType.string, isPrimaryKey: false, autoincrement: false, isIndexed: false, isNullable: false, isUnique: false)]));
 		database.createTable(SchemaTable("_Comment", [SchemaColumn("comment_id", ManagedPropertyType.bigInteger, isPrimaryKey: true, autoincrement: true, isIndexed: false, isNullable: false, isUnique: false),SchemaColumn("content", ManagedPropertyType.string, isPrimaryKey: false, autoincrement: false, isIndexed: false, isNullable: false, isUnique: true)]));
 		database.createTable(SchemaTable("_Teacher", [SchemaColumn("teacher_id", ManagedPropertyType.bigInteger, isPrimaryKey: true, autoincrement: true, isIndexed: false, isNullable: false, isUnique: false),SchemaColumn("teacher_name", ManagedPropertyType.string, isPrimaryKey: false, autoincrement: false, isIndexed: false, isNullable: false, isUnique: true)]));
-		database.addColumn("_Comment", SchemaColumn.relationship("user", ManagedPropertyType.bigInteger, relatedTableName: "_USER", relatedColumnName: "user_id", rule: DeleteRule.nullify, isNullable: true, isUnique: false));
-		database.addColumn("_Comment", SchemaColumn.relationship("course", ManagedPropertyType.bigInteger, relatedTableName: "_Course", relatedColumnName: "course_id", rule: DeleteRule.nullify, isNullable: true, isUnique: false));
   }
   
   @override
@@ -17,24 +15,26 @@ class Migration2 extends Migration {
   
   @override
   Future seed() async {
-    final userNames = ["Jacky"];
-    final userIDs=[1];
-    final userPWs=['zzj673191'];
-  for (final userName in userNames) {    
-    await database.store.execute("INSERT INTO _user (user_nickname) VALUES (@name)", substitutionValues: {
-      "name": userName
+    final courseids=[1];
+    final coursenames=["学习技术系统开发"];
+    final courseteachers=['冯翔'];
+
+      for (final courseid in courseids) {    
+    await database.store.execute("INSERT INTO _Course (course_id) VALUES (@name)", substitutionValues: {
+      "name": courseid
     });
   }
-  for(final userID in userIDs ){
-    await database.store.execute('INSERT INTO _user (user_id) VALUES (@ID)',substitutionValues:{
-      "ID":userID
+    for (final coursename in coursenames) {    
+    await database.store.execute("INSERT INTO _Course (course_name) VALUES (@name)", substitutionValues: {
+      "name": coursename
     });
   }
-  for(final userPW in userPWs ){
-    await database.store.execute('INSERT INTO _user (user_password) VALUES (@PW)',substitutionValues:{
-      "PW":userPW
+    for (final courseteacher in coursenames) {    
+    await database.store.execute("INSERT INTO _Course (teacher_name) VALUES (@name)", substitutionValues: {
+      "name": courseteacher
     });
   }
   }
+  
 }
     

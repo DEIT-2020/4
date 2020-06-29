@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -75,39 +76,41 @@
 				background-color: #B721FF;
 				color: #fff;
 			}
+			footer {
+            position: relative;
+            margin-top: 20px;
+            background-color: black;
+             color: white;
+           clear: both;
+           padding: 5px;
+           width: 100%;
+            text-align: center;
+           position: fixed;
+          bottom: 0;
+           left: 0;
+             }
 		</style>
 	</head>
 	<body>
+		
 		<div id="content">
 			<div id="box">
-				<div class="title">查询</div>
-				<br><br>
+				<div class="title">Login</div>
 				<div class="input">
-					<input type="coursename" id="coursename" placeholder="课程名/教师名" />
-                    <br><br><br>
-                    <a href="语言.html">
-					<button type="button" onclick="getuser()">确认</button>
-				</a>
-				    <a href="index.html">
-					<button type="button" onclick="getuser()">返回</button>
-				</a>
+					<input type="text" id="username" value="" placeholder="用户名" />
+					<br>
+					<input type="password" id="password" placeholder="密码" />
+					<br>
+				
+					<a href="search.html">
+					<button type="button" onclick="getuser()">登录</button>
+					</a>
 				</div>
 			</div>
 		</div>
+        
 	</body>
-	<script type="text/javascript">
-		function getuser() {
-			var coursename = document.getElementById("coursename").value;
-			var teachernam = document.getElementById("teachername").value;
-			testing(coursename, teachernam)
-		}
-
-		function testing(coursename, teachernam) {
-			var tmp = coursename || teachernam;
-			if (tmp == "") {
-				alert("请输入查询信息");
-				return 0;
-			}
-		}
-	</script>
+	
 </html>
+
+ 

@@ -1,137 +1,135 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <style type="text/css">
-            * {
-                margin: 0px;
-            }
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+			}
 
-            #container{
-                margin: 100px;
-                margin-left: 100px;
-                margin-right: 100px;
-                height: 800px;
-                width: 100%;
-            }
+			#content {
+				margin: 50px auto;
+				width: 100%;
+				height: 100px;
+				border: 1px transparent solid;
+				padding-left: 7%;
+				background-color: #21D4FD;
+				background-image: linear-gradient(243deg, #21D4FD 0%, #B721FF 100%);
+				background-image: -webkit-linear-gradient(243deg, #21D4FD 0%, #B721FF 100%);
+				background-image: -moz-linear-gradient(243deg, #21D4FD 0%, #B721FF 100%);
+				background-image: -o-linear-gradient(243deg, #21D4FD 0%, #B721FF 100%);
+			}
 
-            #top {
-                margin-bottom: 100px auto;
-                width: 100%;
-                height: 150px;
-                border: 1px transparent solid;
-                border-radius: 15px;
-                background-color: #ffffff;
-            }
+			#box {
+				margin: 10px auto;
+				width: 50%;
+				height: 200px;
+				background-color: #fff;
+				text-align: left;
+				border-radius: 15px;
+				border: 2px #fff solid;
+				box-shadow: 5px 5px 2px #000000;
+				padding-left: 5%;
+				float: left;
+				margin-left: 70px;
+			}
 
-            #bottom {
-                margin:auto;
-                width: 80%;
-                height: 650px;
-                border-radius: 15px;
-                background-color: rgb(255, 255, 255);
-            }
+			.cname {
+				line-height: 58px;
+				margin-top: 10px;
+				font-size: 24px;
+				color: #000;
+				height: 58px;
+			}
 
-            .input {
-                margin-top: 20px;
-            }
+			.tname {
+				line-height: 58px;
+				margin-top: 10px;
+				font-size: 18px;
+				color: #000;
+				height: 58px;
+			}
 
-            input {
-                margin-top: 5px;
-                outline-style: none;
-                border: 1px solid #ccc;
-                border-radius: 3px;
-                padding: 13px 14px;
-                width: 70%;
-                font-size: 14px;
-                font-weight: 700;
-                font-family: "Microsoft soft";
-            }
+			#box:hover {
+				border: 2px #fff solid;
+			}
 
-            .inputlong{
-                margin: 10px;
-                width: 100%;
-                height: 400px;
-            }
+			.input {
+				margin-top: 10px;
+			}
 
-            button {
-                margin-top: 40px;
-                border: none;
-                color: #000;
-                padding: 15px 32px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                border-radius: 15px;
-                background-color: #CCCCCC;
-            }
-            button:hover{
-                background-color: #B721FF;
-                color: #fff;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="container">
-            <div id="top">
-                <div class="input">
-                    <input type="text" id="coursename" value="" placeholder="课程名" />
-                    <br>
-                    <input type="text" id="courseteacher" placeholder="教师" />
-                </div>
-            </div>
-            <div id="bottom">
-            
-                <div class="inputlong">
-                    <input type="longtext" id="coursecomments" placeholder="输入你的评价"/>
-                    <br>
-                    <button type="button" onclick="getuser()">发布评论</button>
-                    </div>
-            </div>
-        </div>
-        
-        
-    </body>
-    <script type="longtext/javascript">
-        function whritecomments(){
-            var coursecomments=document.getElementById("coursecomments").value;
-        }
-    </script>
-    <script type="text/javascript">
-        function getcourse() {
-            var coursename = document.getElementById("coursename").value;
-            var courseteacher = document.getElementById("courseteacher").value;
-            
-            //alert("username:"+username+"\n"+"password:"+password);
-        }
-        function getuser() {
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-            var password1 = document.getElementById("password1").value;
-            testing(username, password,password1)
-            //alert("username:"+username+"\n"+"password:"+password);
-        }
+			input {
+				margin-right: 40px;
+				outline-style: none;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+				padding: 13px 14px;
+				width: 40%;
+				font-size: 14px;
+				font-weight: 700;
+				font-family: "Microsoft soft";
+			}
 
-        function testing(username, password, password1) {
-            var tmp = username && password;
-            if (tmp == "") {
-                alert("请填写完整信息");
-                return 0;
-            }
-            if (username.length < 6 || username.length > 16) {
-                alert("用户名长度为：6-16位")
-                return 0;
-            } 
-            if (password<6 || password1<6)
-            {
-                alert("密码长度错误");
-            }else if(password == password1){
-                alert("username:" + username + "\n" + "password:" + password);
-            }else{
-                alert("两次输入的密码不一样");
-            }
-        }
-    </script>
+			button {
+				margin-top: 20px;
+				border: none;
+				color: #000;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				border-radius: 15px;
+				background-color: #7bcbe4;
+			}
+			button:hover{
+				background-color: #2ea0ec;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<div class="input">
+				<input type="coursename" id="coursename" placeholder="课程名/教师名" />
+				<a href="语言.html">
+				<button type="button" onclick="getuser()">确认</button>
+			    </a>
+				<a href="search.html">
+					<button type="button" onclick="getuser()">返回</button>
+				</a>
+			</div>
+		</div>
+		<div id="box">
+			<table><tr>
+			<td><img src="pic/1.png"width="100" height="150" /></td>
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			
+			<td><a href="comment.html"><button type="button">学习技术系统开发</button>
+			</a>
+			</div><br>
+			<div class="tname">冯翔</div></td>
+			</tr></table>
+		</div>
+		<br><br>
+		<div id="box">
+			<table><tr>
+				<td><img src="pic/2.png"width="100" height="150"/></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td><button type="button">学习技术系统设计</button><br>
+					<div class="tname">王为民</div></td>
+			</tr></table>
+		</div>
+			<br><br>
+			<div id="box">
+				<table><tr>
+				<td><img src="pic/3.png"width="100" height="150" /></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td><button type="button">教育技术研究方法</button><br>
+				<div class="tname">高丹丹</div></td>
+				</tr></table>
+			</div>
+	</body>
+	
 </html>

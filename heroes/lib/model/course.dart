@@ -16,7 +16,7 @@ class _Course {
 
   @Column(unique:false)
   String score;
-  ManagedSet<Comment>comment;
+ 
   
   
 }

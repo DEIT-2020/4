@@ -53,10 +53,10 @@ class HeroesChannel extends ApplicationChannel {
      // member1 在这里添加了新的路由。 
     // add by leader.
     router
-      .route('/heroes/[id:]')
-      .link(() => HeroesController(context));
+      .route('/heroes/[:id]')
+      .link(() => HeroesController());
     router
-      .route('/login/[user_id]')
+      .route('/login/[:user_id]')
       .link(()=> LoginController(context));
     router
       .route('/search')
